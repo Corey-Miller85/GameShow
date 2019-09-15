@@ -29,5 +29,67 @@ class Game {
         const randomIndex = Math.floor(Math.random() * 5);
        return this.phrases[randomIndex];
     }
+
+    startGame() {
+        document.querySelector('#overlay').style.display = 'none';
+        let phrase = new Phrase(this.getRandomPhrase().phrase);
+        phrase.addPhraseToDisplay();
+        this.activePhrase = phrase;
+    }
+
+    handleIneration(){
+        
+    }
+           
+ /**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
+    checkForWin() {
+        const listItems = document.querySelectorAll('li');
+        for (let listItem of listItems) {
+            if (listItem.className === `hide letter ${listItem.textContent}`) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+
+    removeLife() {
+       const heartsSection = document.querySelectorAll('img');
+       for (let heart of heartsSection) {
+            if (heart.src.includes('/images/lostHeart.png')) {
+               continue;
+            } 
+            if (heart.src.includes('/images/liveHeart.png')) {
+                heart.src = '   image/lostHeart.png';
+                this.missed += 1;
+                break;
+            }
+        }
+        if (this.missed >= 5) {
+            gameOver();
+        }
+    }
+
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+
+    gameOver() {
+        const overlay = document.querySelector('#overlay');
+        const message = overlay.querySelector('h1');
+        overlay.style.display = '';
+        messsage.textContent = "This is a test"
+    }
 }
 
