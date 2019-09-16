@@ -51,8 +51,8 @@
         const div = document.querySelectorAll('#phrase ul li');
         for (let item of div) {
             if (item.textContent === letter) {
-                this.classList.remove('hide');
-                this.classList.add('show');
+                item.classList.remove('hide');
+                item.classList.add('show');
             }
         }
     }

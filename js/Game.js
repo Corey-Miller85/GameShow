@@ -36,9 +36,12 @@ class Game {
         phrase.addPhraseToDisplay();
         this.activePhrase = phrase;
     }
-
-    handleIneration(){
-        
+/**
+* Handles onscreen keyboard button clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+    handleInteraction(button){
+        console.log(button);
     }
            
  /**
@@ -70,13 +73,13 @@ won
                continue;
             } 
             if (heart.src.includes('/images/liveHeart.png')) {
-                heart.src = '   image/lostHeart.png';
+                heart.src = 'images/lostHeart.png';
                 this.missed += 1;
                 break;
             }
         }
         if (this.missed >= 5) {
-            gameOver();
+            this.gameOver();
         }
     }
 
@@ -87,9 +90,18 @@ won
 
     gameOver() {
         const overlay = document.querySelector('#overlay');
-        const message = overlay.querySelector('h1');
+        let message = overlay.querySelector('h1');
         overlay.style.display = '';
-        messsage.textContent = "This is a test"
+        if (this.checkForWin()) {
+            overlay.classList.remove('start');
+            overlay.classList.add('win');
+            message.textContent = "Congrats! You Win!";
+
+        } else {
+            overlay.classList.remove('start');
+            overlay.classList.add('lose');
+            message.textContent = "Sorry, better luck next time!";
+        }
     }
 }
 
