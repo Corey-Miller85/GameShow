@@ -32,7 +32,22 @@ class Game {
 
     startGame() {
         document.querySelector('#overlay').style.display = 'none';
-        const = document.querySelector('')
+        const liSection = document.querySelectorAll('#phrase ul li');
+        for (let liElement of liSection) {
+            document.querySelector('#phrase ul').removeChild(liElement);
+        }
+        const keyboardSection = document.querySelectorAll('#qwerty button')
+        for (let button of keyboardSection) {
+            button.disabled = false;
+            button.className = 'key';
+        }
+        this.missed = 0;
+        const heartsSection = document.querySelectorAll('img');
+       for (let heart of heartsSection) {
+            if (heart.src.includes('/images/lostHeart.png')) {
+                heart.src = 'images/liveHeart.png';
+            } 
+        }
         let phrase = new Phrase(this.getRandomPhrase().phrase);
         phrase.addPhraseToDisplay();
         this.activePhrase = phrase;
