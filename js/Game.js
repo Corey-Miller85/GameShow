@@ -32,6 +32,7 @@ class Game {
 
     startGame() {
         document.querySelector('#overlay').style.display = 'none';
+        const = document.querySelector('')
         let phrase = new Phrase(this.getRandomPhrase().phrase);
         phrase.addPhraseToDisplay();
         this.activePhrase = phrase;
@@ -41,7 +42,17 @@ class Game {
 * @param (HTMLButtonElement) button - The clicked button element
 */
     handleInteraction(button){
-        console.log(button);
+        button.disabled = true;
+        if (this.activePhrase.checkLetter(button.textContent)) {
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(button.textContent);
+            if (this.checkForWin()){
+                this.gameOver();
+            };
+       } else {
+           button.classList.add('wrong');
+           this.removeLife();
+       }
     }
            
  /**
@@ -50,13 +61,11 @@ class Game {
 won
 */
     checkForWin() {
-        const listItems = document.querySelectorAll('li');
-        for (let listItem of listItems) {
-            if (listItem.className === `hide letter ${listItem.textContent}`) {
-                return false;
-            } else {
-                return true;
-            }
+        const listItems = document.querySelectorAll('li.hide');
+        if (listItems.length === 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 

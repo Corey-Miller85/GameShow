@@ -11,6 +11,6 @@ document.querySelector('#btn__reset').addEventListener('click', (e) => {
 document.getElementById('qwerty').addEventListener('click',(e) => {
     const target = e.target;
     if (target.classList.value === 'key') {
-        game.handleInteraction(target.textContent);
+        game.handleInteraction(target);
     }
 });
