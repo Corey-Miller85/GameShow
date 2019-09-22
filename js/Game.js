@@ -114,12 +114,12 @@ won
 
     gameOver() {
         const overlay = document.querySelector('#overlay');
-        let message = overlay.querySelector('h1');
+        let message = overlay.querySelector('#game-over-message');
         overlay.style.display = '';
         if (this.checkForWin()) {
             overlay.classList.remove('start');
             overlay.classList.add('win');
-            message.textContent = "Congrats! You Win!";
+            message.textContent = "Congratulations! You've Won!";
 
         } else {
             overlay.classList.remove('start');

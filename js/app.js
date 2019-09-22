@@ -14,3 +14,8 @@ document.getElementById('qwerty').addEventListener('click',(e) => {
         game.handleInteraction(target);
     }
 });
+
+document.getElementById('qwerty').addEventListener('keyUp', (e) => {
+    const target = e.target;
+    console.log(target);
+});
