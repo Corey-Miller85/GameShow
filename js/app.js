@@ -15,8 +15,13 @@ document.getElementById('qwerty').addEventListener('click',(e) => {
     }
 });
 
-document.addEventListener('keyup', (e) => {
-    const target = 
-    game.handleInteraction(e.key);
-
+document.addEventListener('keydown', (e) => {
+    let letter = e.key;
+    let keyClass = document.querySelectorAll('.key')
+    console.log(letter);
+    for (var keyLetter of keyClass ){
+        if (letter === keyLetter.textContent) {
+            game.handleInteraction(keyLetter)
+        }
+    }
 });
