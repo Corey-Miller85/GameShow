@@ -15,6 +15,8 @@ document.getElementById('qwerty').addEventListener('click',(e) => {
     }
 });
 
+
+//gets keyboard input, checks if key is valid, marks key
 document.addEventListener('keydown', (e) => {
     let letter = e.key;
     let keyClass = document.querySelectorAll('.key')
