@@ -28,6 +28,9 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background-image: url(/images/curtain.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 li, ol, ul {
@@ -94,7 +97,8 @@ button:active {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #f1e317;
+  text-shadow: 5px 5px 5px black;
 }
 
 
