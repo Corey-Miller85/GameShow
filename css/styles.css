@@ -98,6 +98,7 @@ button:active {
 
 .header {
   color: #f1e317;
+  /* add text shadow for readablity */
   text-shadow: 5px 5px 5px black;
 }
 
