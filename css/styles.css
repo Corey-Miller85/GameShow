@@ -46,6 +46,7 @@ h1 {
   font-size: 30px;
 }
 
+/* add Drop shadows on buttons*/
 button {
   margin: 6px;
   border: 1px solid transparent;
@@ -58,6 +59,13 @@ button {
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+  box-shadow: 2px 2px 4px black;
+}
+/* Animation on click */
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
 }
 
 #btn__reset {
